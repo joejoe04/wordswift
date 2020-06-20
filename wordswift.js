@@ -63,6 +63,9 @@ const WordSwift = function(window, document, undefined) {
       W.setCookies();
       W.setAppliedSettings();
       W.wsCtnrs;
+
+      W.constructExampleArticle();
+
       W.setWsTriggers();
       W.targ = null;
 
@@ -85,6 +88,24 @@ const WordSwift = function(window, document, undefined) {
       W.mDownOnButtonId = null;
       
       W. wsRafLastTime = 0;
+    },
+
+    constructExampleArticle: function() {
+
+      const articleContainer = document.getElementById( 'wordswift-card' );
+      
+      const frag = document.createDocumentFragment();
+
+      const article = document.createElement( 'div' );
+      article.style.position = 'absolute';
+      article.style.height = '0px';
+      article.style.width = '0px';
+      article.style.overflow = 'hidden';
+      article.id = 'wordswift-example-article';
+      article.innerHTML = '<h1>This speed reader app</h1> offers your site\'s visitors the ability to read your content at an accelerated pace. The faster your readers can consume your content, the more they will read. It works by eliminating some of the key factors for why so many of us read slower than we\'d like. Single words from an article are flashed on the screen, quickly and in succession, so as to eliminate the need for readers to move their eyes from word to word, which adds significantly to the time it takes to get through an article. Also, because the words are flashed so quickly, readers are also able to avoid subvocalization of words as they read. If you\'ve ever noticed yourself "speaking" words to yourself as you read, that is subvocalization and it is entirely unnecessary and serves only to slow you down. This app is designed to be very adaptable to various site. You are able configure it to target the elements on your page that contain your text content. You are also able to target specific elements within them whose text should be excluded. A good example of this is when sites sometimes you blockquotes as callouts. This text should not be included in the speed reader since the same text would be shown twice. Additionally, the words displayed in the speed reader are shown in a style based on what type of element they are from to give readers more context. For instance, words from &lt;h1&gt; through &lt;h6&gt; elements are displayed with an overline and underline <h2>Like This Title For Example</h2>. Words from &lt;a&gt; elements are displayed with an underline <a href="https://www.joedisalvo.com">like this</a>. For a full breakdown of these styles, click the info tab above. Users are also able to customize this speed reader too using the menu tab. They are able to change the speed at which the words are displayed in words per minute, the number of words displayed per frame, the font size, and whether or not the aforementioned word styles are applied or each word is just displayed as plain text.';
+
+      frag.appendChild(article);
+      articleContainer.appendChild(frag);
     },
 
     setCookies: function() {
@@ -113,19 +134,17 @@ const WordSwift = function(window, document, undefined) {
       // W.setCookie({cName: 'wordswift-wpm', cVal: c.wpm, cDays: -9999, cDomain: W.rootDomain});
       // W.setCookie({cName: 'wordswift-numDisplayWords', cVal: c.numDisplayWords, cDays: -9999, cDomain: W.rootDomain});
       // W.setCookie({cName: 'wordswift-fontSize', cVal: c.fontSize, cDays: -9999, cDomain: W.rootDomain});
-      // W.setCookie({cName: 'wordswift-applyWordStyles', cVal: c.applyWordStyles, cDays: -9999, cDomain: W.rootDomain});
-
-      console.dir(document.cookie);
+      // W.setCookie({cName: 'wordswift-applyWordStyles', cVal: c.applyWordStyles, cDays: -9999, cDomain: W.rootDomain});      
     },
 
     setAppliedSettings: function() {
 
-    let wpm = parseInt( W.readCookie('wordswift-wpm'), 10 ),
-      numDisplayWords = parseInt(W.readCookie('wordswift-numDisplayWords'), 10 ),
-      fontSize = W.readCookie('wordswift-fontSize'),
-      applyWordStyles = W.readCookie('wordswift-applyWordStyles');
+    let wpm = parseInt( W.readCookie( 'wordswift-wpm' ), 10 );
+    let numDisplayWords = parseInt(W.readCookie( 'wordswift-numDisplayWords' ), 10 );
+    let fontSize = W.readCookie( 'wordswift-fontSize' );
+    let applyWordStyles = W.readCookie( 'wordswift-applyWordStyles' );
 
-
+console.dir(wpm);
       aS.wpm = (wpm !== null) ? parseInt( wpm, 10 ) : parseInt( c.wpm, 10 );
       aS.numDisplayWords = (numDisplayWords !== null) ? parseInt( numDisplayWords, 10 ) : parseInt( c.numDisplayWords, 10 );
       aS.fontSize = (fontSize !== null) ? fontSize : c.fontSize;
@@ -152,7 +171,8 @@ const WordSwift = function(window, document, undefined) {
     constructWsEls: function( e ) {
 
       W.targ = e.target || e.srcElement || undefined;
-      W.parentClone = W.targ.parentNode.parentNode.cloneNode( true );
+      // W.parentClone = W.targ.parentNode.parentNode.cloneNode( true );
+      W.parentClone = document.getElementById( 'wordswift-example-article' );
 
       try {
 
@@ -564,13 +584,10 @@ const WordSwift = function(window, document, undefined) {
                 '<h1>WordSwift Options</h1>',
                 '<label for="ws-speed">Speed (Words Per Minute)</label>',
                 '<input id="ws-speed" name="ws-speed" type="text" value="' + aS.wpm + '">',
-                '<hr>',
                 '<label for="ws-num-words">Number of Words Displayed at a Time</label>',
                 '<input id="ws-num-words" name="ws-num-words" type="text" value="' + aS.numDisplayWords + '">',
-                '<hr>',
                 '<label for="ws-font-size">Font Size (Include unit)</label>',
                 '<input id="ws-font-size" name="ws-font-size" type="text" value="' + aS.fontSize + '">',
-                '<hr>',
                 '<label for="ws-style-words">Apply styles to words based on the semantic value of the text? If yes, text from things like links and headings will be styled to distinguish them from regular text. If no, all words will just appear as plain text. Consult the info section to see a detailed list of all styles applied to words of certain types.</label>',
                 '<select id="ws-style-words">',
                   '<option value="yes" ' + applyWordStylesYes + '>Yes</option>',
@@ -590,47 +607,36 @@ const WordSwift = function(window, document, undefined) {
               '<p>',
                   'WordSwift applies some styles to words to make it easier for you to know more information about the context from which the word was taken. For example, a word taken from a title of a page, is styled in such a way to distinguish it as a title, since that is not otherwise obvious to you as you are reading using WordSwift. The following is a list of the types of elements and the types of styles that will be applied to words that come from them:',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-h">Words from headers and titles of articles</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-a">Words from links to other web pages</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-q">Words from quoted text</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-em">Words singled out for emphasis</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-strong">Words singled out for having strong importance</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span>Text displayed lower and smaller, such as from numbers in a chemical formula (H<span class="ws-sub">2</span>O)</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span>Text displayed higher and smaller, such as from exponents in a math formula (2x<span class="ws-sup">3</span> + 10)</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-del">Words that were originally part of article, but were removed</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-s">Text deemed no longer relevant or accurate</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   '<span class="ws-code">Text from a block of computer code</span>',
                 '</p>',
-                '<hr>',
                 '<p>',
                   'There may also be some other words stylized in some way, based on the website owner\'s preferences, but the ones listed above are the main ones.',
                 '</p>',
@@ -1529,6 +1535,8 @@ const WordSwift = function(window, document, undefined) {
 
       cookieStr += (args.cPath) ? '; path=' + args.cPath : '; path=/';
 
+      cookieStr += '; SameSite=Lax; Secure';
+
       document.cookie = cookieStr;
 
     },
@@ -1569,4 +1577,3 @@ W.init();
 
 
 console.dir(W.appliedSettings);
-console.log(WordSwift.rootDomain);

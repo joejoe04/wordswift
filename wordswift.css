@@ -16,62 +16,6 @@
 	padding: 0 20px 0 0;
 }
 
-
-/*@font-face {
-	font-family: 'icons';
-	src:url('fonts/icons.eot?kmenxa');
-	src:url('fonts/icons.eot?#iefixkmenxa') format('embedded-opentype'),
-		url('fonts/icons.woff?kmenxa') format('woff'),
-		url('fonts/icons.ttf?kmenxa') format('truetype'),
-		url('fonts/icons.svg?kmenxa#icons') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-	font-family: 'icons';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	font-size: 20px; /*these icons designed specifically for 20px*/
-	/* Better Font Rendering =========== */
-	/*-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.icon-list:before {
-	content: "\e600";
-}
-.icon-play:before {
-	content: "\e601";
-}
-.icon-pause:before {
-	content: "\e602";
-}
-.icon-next:before {
-	content: "\e603";
-}
-.icon-previous:before {
-	content: "\e604";
-}
-.icon-first:before {
-	content: "\e605";
-}*/
-
-/*@font-face {
-	font-family: 'icons';
-	src:url('fonts/icons.eot?-qf00vo');
-	src:url('fonts/icons.eot?#iefix-qf00vo') format('embedded-opentype'),
-		url('fonts/icons.woff?-qf00vo') format('woff'),
-		url('fonts/icons.ttf?-qf00vo') format('truetype'),
-		url('fonts/icons.svg?-qf00vo#icons') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}*/
-
 @font-face {
 	font-family: 'icons';
 	src: url('fonts/icons.eot');
@@ -153,6 +97,7 @@
 
 #ws-darken {
 	position: fixed;
+	z-index: 1000;
 	height: 100%;
 	top: 0;
 	right: 0;
@@ -275,7 +220,7 @@
 #ws-container .ws-settings,
 #ws-container .ws-info {
 	position: absolute;
-	width: 650px;
+	width: 648px;
 	height: 0;
 	right: 0;
 	top: 0;
