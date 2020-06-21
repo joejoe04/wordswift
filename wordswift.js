@@ -116,7 +116,7 @@ const WordSwift = function(window, document, undefined) {
         W.setCookie({cName: 'wordswift-wpm', cVal: c.wpm, cDays: 9999, cDomain: W.rootDomain});
       }
 
-      if (W.readCookie('wordswift-num-display-words') === null) {
+      if (W.readCookie('wordswift-numDisplayWords') === null) {
 
         W.setCookie({cName: 'wordswift-numDisplayWords', cVal: c.numDisplayWords, cDays: 9999, cDomain: W.rootDomain});
       }
@@ -144,7 +144,6 @@ const WordSwift = function(window, document, undefined) {
     let fontSize = W.readCookie( 'wordswift-fontSize' );
     let applyWordStyles = W.readCookie( 'wordswift-applyWordStyles' );
 
-console.dir(wpm);
       aS.wpm = (wpm !== null) ? parseInt( wpm, 10 ) : parseInt( c.wpm, 10 );
       aS.numDisplayWords = (numDisplayWords !== null) ? parseInt( numDisplayWords, 10 ) : parseInt( c.numDisplayWords, 10 );
       aS.fontSize = (fontSize !== null) ? fontSize : c.fontSize;

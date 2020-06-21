@@ -1,0 +1,1107 @@
+3.0.25 (Classy Cassidy)
+54e4a657bd2838af72c4fd065c703bab0fbefb4c
+o:Sass::Tree::RootNode
+:@template"wN/**
+Theme Name: colibri-wp-child
+Author: Joe DiSalvo
+Author URI: https://www.joedisalvo.com
+Description: Child theme created from Colibri WP
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: colibri-wp-child-style
+Template: colibri-wp
+*/
+
+
+$white: rgba(255, 255, 250, 1);
+$black: rgba(0, 0, 0, 1);
+
+$green-highlight: rgba(63, 241, 170, 1);
+$green-highlight-light: lighten($green-highlight, 20%);
+
+$faded-green: rgba(233, 247, 240, 1);
+$base-color-lightest: rgba(120, 205, 215, 1);
+$base-color-lighter: rgba(68, 161, 160, 1);
+$base-color: rgba(10, 126, 139, 1);
+$darker-green: rgba(13, 92, 99, 1);
+$darkest-green: rgb(4, 29, 38);
+
+$green-highlight-o80: rgba(63, 241, 170, 0.8);
+$base-color-lightest-o80: rgba(120, 205, 215, 0.8);
+$base-color-lighter-o80: rgba(68, 161, 160, 0.8);
+$base-color-o80: rgba(10, 126, 139, 0.8);
+$darker-green-o80: rgba(13, 92, 99, 0.8);
+
+$grey: rgba(51, 51, 51, 1);
+
+
+$m1: 10px;
+$m2: 20px;
+$m3: 40px;
+$m4: 80px;
+$m5: 160px;
+
+
+$max-width-full: 1100px;
+
+
+@mixin gradient-base-to-darker-green {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3ff1aa+0,0d5c63+100 */
+  background: $green-highlight;
+  background: -moz-linear-gradient(45deg,  $green-highlight 0%, $darker-green 100%);
+  background: -webkit-linear-gradient(45deg,  $green-highlight 0%,$darker-green 100%);
+  background: linear-gradient(45deg,  $green-highlight 0%,$darker-green 100%);
+}
+
+@mixin gradient-base-to-darker-green-o80 {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3ff1aa+0,0d5c63+100 */
+  background: $green-highlight-o80;
+  background: -moz-linear-gradient(45deg,  $green-highlight-o80 0%, $darker-green-o80 100%);
+  background: -webkit-linear-gradient(45deg,  $green-highlight-o80 0%,$darker-green-o80 100%);
+  background: linear-gradient(45deg,  $green-highlight-o80 0%,$darker-green-o80 100%);
+}
+
+@mixin gradient-base-to-darker-green--short {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3ff1aa+0,0d5c63+100 */
+  background: $green-highlight;
+  background: -moz-linear-gradient(45deg,  $green-highlight 20%, $darker-green 100%);
+  background: -webkit-linear-gradient(45deg,  $green-highlight 20%,$darker-green 100%);
+  background: linear-gradient(45deg,  $green-highlight 20%,$darker-green 100%);
+}
+
+@mixin gradient-test {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0a1d33+0,1ae091+100 */
+  background: rgb(10,29,51); /* Old browsers */
+  background: -moz-linear-gradient(45deg,  rgba(10,29,51,1) 0%, rgba(26,224,145,1) 100%);
+  background: -webkit-linear-gradient(45deg,  rgba(10,29,51,1) 0%,rgba(26,224,145,1) 100%);
+  background: linear-gradient(45deg,  rgba(10,29,51,1) 0%,rgba(26,224,145,1) 100%);
+}
+
+@mixin mlra {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+div:before, ul:before, article:before, aside:before, details:before, figcaption:before, figure:before, footer:before, header:before, hgroup:before, menu:before, nav:before, section:before, div:after, ul:after, article:after, aside:after, details:after, figcaption:after, figure:after, footer:after, header:after, hgroup:after, menu:after, nav:after, section:after {
+  content: none;
+}
+
+
+
+
+
+// Container for whole top header block
+#colibri .h-navigation_outer.style-local-16-h2-outer {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+// Logo & Navigation block
+#colibri .style-2 {
+  order: 1;
+  padding: 0 $m2;
+  background-color: rgba(255, 255, 255, .3);
+}
+
+// Outer container element for all the top menu items, social media, 
+#colibri .h-navigation_outer.style-local-16-h2-outer > .h-section-grid-container.h-section-fluid-container {
+  order: 2;
+}
+
+
+// Green gradient button
+#colibri a.style-31 {
+  position: relative;
+  background: transparent;
+  z-index: 10;
+  text-shadow: -1px 1px $darker-green;
+}
+
+// Green gradient button:before for background-gradient transition
+#colibri a.style-31::before {
+  @include gradient-base-to-darker-green();
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 1;
+  border-radius: 300px;
+  transition: all .5s;
+}
+
+// Override styles from parent theme for green button hover, etc
+#colibri a.style-31:hover,
+#colibri a.style-31:focus,
+#colibri a.style-31:active {
+  background: transparent;
+}
+
+// Transition opacity on hover, etc
+#colibri a.style-31:hover::before,
+#colibri a.style-31:focus::before,
+#colibri a.style-31:active::before {
+  opacity: 0.8;
+}
+
+// Contact icons at top of page
+#colibri .style-22-icon {
+  fill: $green-highlight-light;
+}
+
+// text of the contact links at top of page
+#colibri .style-22 .list-text {
+  transition: all .5s;
+}
+
+// hover, etc for text of contact links at top of page
+#colibri .style-22 .list-text:hover,
+#colibri .style-22 .list-text:focus,
+#colibri .style-22 .list-text:active {
+  color: $green-highlight-light;
+}
+
+// Logo
+#colibri .style-5 .logo-text {
+  transition: all .5s;
+  text-transform: uppercase;
+}
+
+// Logo hover, etc
+#colibri .style-5 .logo-text:hover,
+#colibri .style-5 .logo-text:focus,
+#colibri .style-5 .logo-text:active {
+  color: $green-highlight-light;
+}
+
+// Hover, etc for social media icons
+#colibri .style-24 .icon-container:hover,
+#colibri .style-24 .icon-container:focus,
+#colibri .style-24 .icon-container:active {
+  fill: $green-highlight-light;
+}
+
+// Primary navigation at top of page hover, etc
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li > a:hover,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li > a:focus,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li > a:active {
+  color: $green-highlight-light;
+}
+
+// Primary navigation of current page item while at tops of page hover, etc
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:focus,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:active {
+  color: $green-highlight-light;
+}
+
+// Remove underline effects of main nav items
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after, #colibri .style-9 ul.colibri-menu.bordered-active-item > li::before {
+  background-color: transparent;
+}
+
+// Removing underline of active nav link while page scrolled
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,
+#colibri .h-navigation_sticky .style-9 ul.colibri-menu.bordered-active-item > li::before,
+#colibri .h-navigation_sticky.style-9 > div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,
+#colibri .h-navigation_sticky.style-9 ul.colibri-menu.bordered-active-item > li::before {
+  color: $black;
+  background-color: transparent;
+}
+
+// Adjusting color of active nav link
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a {
+  color: $black;
+}
+
+// Hover effect for logo while page scrolled
+#colibri .h-navigation_sticky .style-5 .logo-text:hover,
+#colibri .h-navigation_sticky .style-5 .logo-text:focus,
+#colibri .h-navigation_sticky .style-5 .logo-text:active {
+  color: $green-highlight;
+}
+
+// Hover, etc effect for nav links while page scrolled
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li:hover > a,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li:focus > a,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li:active > a,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:focus
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:active {
+  color: $green-highlight;
+}
+
+// first child of the top contact info bar
+#colibri .style-20 {
+  padding: $m1 0 0;
+  background-color: rgba(255, 255, 255, .2);
+  background-color: transparent;
+}
+
+// grandchild of top contact info bar
+#colibri .style-20 .h-section-boxed-container {
+  @include mlra();
+  background: transparent;
+  max-width: $max-width-full;
+}
+
+// Prevent top contact bar from being hidden on mobile
+.h-hide-sm {
+  display: block;
+}
+
+// Inside-most container of the contact info and social media blocks
+#colibri .h-hide-sm .h-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between !important;
+  width: 100%;
+  padding: $m1 $m2;
+}
+
+// Contact info block
+#colibri .h-hide-sm .style-local-16-h21-outer {
+  flex: 1 1 auto;
+}
+
+// list items within contact info block
+#colibri .h-hide-sm .style-local-16-h21-outer .list-item {
+  margin-bottom: 2px;
+  flex: 0 0 auto;
+}
+#colibri .h-hide-sm .style-local-16-h21-outer .list-item:last-of-type {
+  margin-bottom: 0;
+}
+
+// ul within the contact info block
+.ul-list-icon.horizontal-on-mobile {
+  display: block;
+}
+
+// li within the contact info block
+.ul-list-icon.horizontal-on-mobile .list-item {
+  display: block;
+}
+
+// max-width on small screens so social media icons display 2x2
+#colibri .h-hide-sm .style-local-16-h23-outer {
+  max-width: 80px;
+  width: unset;
+}
+
+// increase size of icons
+#colibri .style-24 .icon-container {
+  width: 22px;
+  height: 22px;
+}
+
+// shrink space between logo and menu icon so logo 1 line long only
+#colibri .style-local-16-h6-outer {
+  max-width: 0;
+}
+
+#colibri .style-4-outer.style-local-16-h4-outer {
+  padding-left: 0;
+}
+
+// Menu Icon outer container
+#colibri .style-local-16-h8-outer {
+  transform: translateX(15px);
+}
+
+// Social Icons Container
+.h-social-icons {
+  transform: translateX(5px);
+  justify-content: flex-end !important;
+}
+
+// Adjust the linkedin and github social icon positions
+#colibri .style-24 .social-icon-container:nth-last-of-type(1),
+#colibri .style-24 .social-icon-container:nth-last-of-type(2) {
+  padding-top: 2px;
+}
+
+// Hero video section
+#colibri #hero {
+  padding-left: $m2;
+  padding-right: $m2;
+}
+
+// Main header in hero section
+#colibri #hero h1 {
+  font-size: 2em;
+  line-height: 1.1;
+  margin-bottom: $m3;
+}
+
+// Container for secondary header in hero section
+#colibri #hero .style-local-16-h29 {
+  margin-bottom: $m3;
+}
+
+// Secondary header in hero section
+#colibri #hero .style-29 p {
+  font-size: .7em;
+  line-height: 1.3;
+}
+
+// Page section created by wp-calibri with spacers
+#content .h-section-global-spacing {
+  padding: 0;
+}
+
+#content .h-section-boxed-container {
+  max-width: unset;
+}
+
+// Footer container
+#colibri .jed-footer {
+  color: $white;
+  padding: $m2;
+  background-color: $black;
+  text-align: center;
+}
+
+
+
+
+
+
+// SECTION STYLES
+
+// Fixing issue w/ wp-colibri sections causing horizontal scroll
+#colibri .jed-section {
+  padding: $m4 $m2;
+  background-color: $white;
+  text-align: left;
+}
+
+#colibri .content .h-row {
+  margin: 0;
+  display: block;
+}
+#colibri .h-col {
+  padding: 0;
+}
+
+#colibri .jed-section__heading {
+  font-weight: 900;
+  margin-bottom: $m4;
+  text-align: center;
+}
+
+#colibri .jed-section__subheading {
+  margin: 0;
+}
+
+#colibri .jed-section--white__subheading {
+  @include gradient-base-to-darker-green();
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#colibri .jed-section--white__subheading--short {
+  @include gradient-base-to-darker-green--short();
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#colibri .jed-section__subheading4 {
+  margin: 0;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+#colibri .jed-section--basecolor {
+  background: $base-color-lighter;
+  background-color: $darkest-green;
+}
+
+#colibri .jed-section--basecolor__heading {
+  color: $white;
+}
+
+#colibri .jed-section--basecolor__subheading {
+  color: $white;
+  text-align: center;
+  margin: $m4 0 $m3;
+}
+
+#colibri .jed-section--basecolor__subheading:first-of-type {
+  margin: 0 0 $m3;
+}
+
+#colibri .jed-section--faded-green {
+  background-color: $faded-green;
+}
+
+#colibri .jed-section--faded-green__heading {
+  color: $grey;
+}
+
+#colibri .jed-section--faded-green__subheading {
+  color: $black;
+  text-align: center;
+  margin: $m4 0 $m3;
+}
+
+#colibri .jed-section--faded-green__subheading:first-of-type {
+  margin: 0 0 $m3;
+}
+
+#colibri .jed-section--dark-green {
+  background-color: $darkest-green;
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/contact-background.jpg);
+  background-size: cover;
+}
+
+#colibri .jed-section--dark-green__heading {
+  color: $white;
+}
+
+#colibri .jed-section--dark-green__subheading {
+  color: $white;
+  text-align: center;
+  margin: $m4 0 $m3;
+}
+
+#colibri .jed-section--dark-green__subheading:first-of-type {
+  margin: 0 0 $m3;
+}
+
+
+
+
+// RESUME SECTION
+#colibri .jed-resume-ctr {
+  @include mlra();
+  max-width: $max-width-full;
+}
+
+#colibri .jed-resume__row {
+  margin-bottom: $m3;
+}
+
+#colibri .jed-resume__professional-summary {
+  margin-top: $m2;
+}
+
+#colibri .jed-resume__subheading-ctr {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#colibri .jed-resume__skills-subheading {
+  margin-top: $m2;
+}
+
+#colibri .jed-resume__skills-ul {
+  margin: 0;
+}
+
+#colibri .jed-resume__skills-li {
+  display: inline-block;
+  padding: 0 10px 0 15px;
+  position: relative;
+}
+
+#colibri .jed-resume__skills-li:before {
+  content: "\2022";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  display: block;
+  color: $base-color;
+}
+
+#colibri .jed-resume__name {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1em;
+  margin: $m2 0 0;
+}
+
+#colibri .jed-resume__job-details-ul {
+  margin: 0;
+}
+
+#colibri .jed-resume__job-details-li {
+  display: block;
+  padding-left: 15px;
+  position: relative;
+}
+
+#colibri .jed-resume__job-details-li:before {
+  content: "\2022";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  display: block;
+  color: $base-color;
+}
+
+
+
+
+
+// PORTFOLIO SECTION
+
+.jed-portfolio {
+  max-width: $max-width-full;
+  margin: 0 auto;
+}
+
+#colibri .jed-cards-ctr {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+#colibri .jed-card {
+  width: 100%;
+  background-color: $white;
+  margin-bottom: $m3;
+  border-radius: 2%;
+  max-width: 450px;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba($darkest-green, .12);
+}
+#colibri .jed-card:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+#colibri .jed-card__title {
+  padding: $m1 $m2;
+  position: relative;
+  z-index: 999999;
+  background: $white;
+}
+
+#colibri .jed-card__foot {
+  padding: $m2;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+#colibri .jed-card__content {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50%;
+  position: relative;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .4);
+  z-index: 1;
+}
+
+#colibri .jed-card__content--wordswift {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/wordswift-card-image.jpg);
+}
+
+#colibri .jed-card__content--lease-mileage {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/lease-mileage-card-image.jpg);
+}
+
+#colibri .jed-card__content--insurance {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/3d-insurance-card-image.jpg);
+}
+#colibri .jed-card__content--handy {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/handy-hendricks-card-image.jpg);
+}
+#colibri .jed-card__content--sc-laundromats {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/sc-laundromats-card-image.jpg);
+}
+#colibri .jed-card__content--owlworks {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/owlworks-card-image.jpg);
+}
+
+#colibri .jed-card__action-ctr {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+#colibri .jed-card__action-ctr--a-only {
+  justify-content: flex-end;
+}
+
+#colibri .jed-card__view-demo {
+  color: $white;
+  padding: 5px 14px;
+  border: none;
+  cursor: pointer;
+  background: $grey;
+  font-weight: bold;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+#colibri .jed-card__view-demo:hover,
+#colibri .jed-card__view-demo:focus,
+#colibri .jed-card__view-demo:active {
+  background: $base-color;
+}
+
+#colibri .jed-card__go-to {
+  color: $grey;
+  font-weight: bold;
+  transition: all 0.5s;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+#colibri .jed-card__go-to:hover,
+#colibri .jed-card__go-to:focus,
+#colibri .jed-card__go-to:active {
+  color: $base-color;
+}
+
+#colibri .jed-icon {
+  background-size: 100% 100%;
+  width: 1.3em;
+  height: 1.3em;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1px;
+}
+#colibri .jed-icon--github {
+  // background-size: 100% 100%;
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/github-icon.png);
+}
+#colibri .jed-icon--external-a {
+  background-image: url(https://www.joedisalvo.com/wp-content/uploads/external-a-icon.png);
+}
+
+
+
+
+
+
+
+// CONTACT ME SECTION
+
+#colibri #jed-section-contact form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #ffffff22;
+  background: rgba(255, 255, 255, .15);
+  border-radius: 8px;
+}
+
+#colibri #jed-section-contact input,
+#colibri #jed-section-contact textarea {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  background: #ffffff33;
+  background: rgba(255, 255, 255, .18);
+  color: $white;
+  border-radius: 6px;
+}
+
+#colibri #jed-section-contact label {
+  color: $white;
+}
+
+#colibri .jed-contact-submit-ctr {
+  margin: 0;
+}
+
+.google-captcha-msg {
+  font-size: 10px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.google-captcha-msg a {
+  color: $green-highlight;
+}
+
+
+
+
+
+
+
+@media (min-width: 550px) {
+  
+  #colibri #navigation {
+    padding: 0 $m3;
+  }
+
+  #colibri .h-hide-sm .h-row {
+    padding: $m1 $m3;
+  }
+
+  #colibri #hero {
+    padding-left: $m3;
+    padding-right: $m3;
+  }
+
+  #colibri .jed-section {
+    padding: $m4 $m3;
+  }
+}
+
+@media (min-width: 576px) {
+  
+  .h-section-boxed-container {
+    max-width: $max-width-full;
+  }
+}
+
+@media (min-width: 645px) {
+
+  // ul within the contact info block
+  .ul-list-icon.horizontal-on-mobile {
+    display: flex;
+  }
+
+  // li within the contact info block
+  .ul-list-icon.horizontal-on-mobile .list-item {
+    display: inline-flex;
+  }
+
+  // max-width on small screens so social media icons display 2x2
+  #colibri .h-hide-sm .style-local-16-h23-outer {
+    max-width: 100%;
+  }
+
+  #colibri .h-hide-sm .h-row {
+    padding: 2px $m3;
+  }
+
+  // Main header in hero section
+  #colibri #hero h1 {
+    font-size: 3em;
+    line-height: 1.1;
+    margin-bottom: $m3;
+  }
+
+  // Container for secondary header in hero section
+  #colibri #hero .style-local-16-h29 {
+    margin-bottom: $m3;
+  }
+
+  // Secondary header in hero section
+  #colibri #hero .style-29 p {
+    font-size: 1em;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 768px) {
+
+  // Reverse shrinking of spacer between logo and menu icon/items on larger screens
+  #colibri .style-local-16-h6-outer {
+    max-width: 100%;
+  }
+
+  // Menu Icon outer container
+  #colibri .style-local-16-h8-outer {
+    transform: translateX(5px);
+  }
+
+  #colibri .jed-cards-ctr {
+    justify-content: space-between;
+  }
+
+  #colibri .jed-card:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+
+  #colibri .jed-card {
+    width: calc(50% - #{$m1});
+  }
+}
+
+@media (min-width: 900px) {
+  
+  #colibri #navigation {
+    padding: 0 $m4;
+  }
+
+  #colibri #hero {
+    padding-left: $m4;
+    padding-right: $m4;
+  }
+
+  #colibri .h-hide-sm .h-row {
+    padding: 2px 0;
+  }
+
+  #colibri .style-20 {
+    padding: $m1 $m4 0;
+  }
+
+  #colibri .jed-section {
+    padding: $m4 $m4;
+  }
+}
+
+@media (min-width: 1024px) {
+  // Menu Icon outer container
+  #colibri .style-local-16-h8-outer {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+// HELPERS
+
+.unbold {
+  font-weight: 400;
+  font-size: 0.7em;
+}
+
+.grecaptcha-badge { 
+  visibility: hidden;
+}:@options{:always_checkT:
+cacheT:line_comments0:full_exceptionT:property_syntax0:template_location[ :
+style:expanded:filename"R/home/joedisal/public_html/wp-content/themes/colibri-wp-child/sass/style.scss:css_filename"L/home/joedisal/public_html/wp-content/themes/colibri-wp-child/style.css:load_paths[".:cache_location"./.sass-cache:css_location"./public/stylesheets:syntax:	scss:always_updateF:@children[∫o:Sass::Tree::CommentNode:@silent0:@value"=/**
+Theme Name: colibri-wp-child
+Author: Joe DiSalvo
+Author URI: https://www.joedisalvo.com
+Description: Child theme created from Colibri WP
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: colibri-wp-child-style
+Template: colibri-wp
+*/;@;[ :@lines[ :
+@lineio:Sass::Tree::VariableNode:
+@name"
+white;@;[ :@guarded0;i:
+@expro:Sass::Script::Funcall
+:@context:default;"	rgba;{ ;i:
+@args[	o:Sass::Script::Number;iˇ:@original"255;#;$;@:@denominator_units[ ;i:@numerator_units[ o;&;iˇ;'"255;#;$;@;([ ;i;)[ o;&;i˙;'"250;#;$;@;([ ;i;)[ o;&;i;'"1;#;$;@;([ ;i;)[ o;;"
+black;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;i ;'"0;#;$;@0;([ ;i;)[ o;&;i ;'"0;#;$;@0;([ ;i;)[ o;&;i ;'"0;#;$;@0;([ ;i;)[ o;&;i;'"1;#;$;@0;([ ;i;)[ o;;"green-highlight;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;iD;'"63;#;$;@G;([ ;i;)[ o;&;iÒ;'"241;#;$;@G;([ ;i;)[ o;&;i™;'"170;#;$;@G;([ ;i;)[ o;&;i;'"1;#;$;@G;([ ;i;)[ o;;"green-highlight-light;@;[ ; 0;i;!o;"
+;#;$;"lighten;{ ;i;%[o:Sass::Script::Variable	;#;$;"green-highlight;@^;io;&;i;'"20%;#;$;@^;([ ;i;)["%o;;"faded-green;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;iÈ;'"233;#;$;@l;([ ;i;)[ o;&;i˜;'"247;#;$;@l;([ ;i;)[ o;&;i;'"240;#;$;@l;([ ;i;)[ o;&;i;'"1;#;$;@l;([ ;i;)[ o;;"base-color-lightest;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;i};'"120;#;$;@~;([ ;i;)[ o;&;iÕ;'"205;#;$;@~;([ ;i;)[ o;&;i◊;'"215;#;$;@~;([ ;i;)[ o;&;i;'"1;#;$;@~;([ ;i;)[ o;;"base-color-lighter;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;iI;'"68;#;$;@ï;([ ;i;)[ o;&;i°;'"161;#;$;@ï;([ ;i;)[ o;&;i†;'"160;#;$;@ï;([ ;i;)[ o;&;i;'"1;#;$;@ï;([ ;i;)[ o;;"base-color;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;i;'"10;#;$;@¨;([ ;i;)[ o;&;i~;'"126;#;$;@¨;([ ;i;)[ o;&;iã;'"139;#;$;@¨;([ ;i;)[ o;&;i;'"1;#;$;@¨;([ ;i;)[ o;;"darker-green;@;[ ; 0;i;!o;"
+;#;$;"	rgba;{ ;i;%[	o;&;i;'"13;#;$;@√;([ ;i;)[ o;&;ia;'"92;#;$;@√;([ ;i;)[ o;&;ih;'"99;#;$;@√;([ ;i;)[ o;&;i;'"1;#;$;@√;([ ;i;)[ o;;"darkest-green;@;[ ; 0;i;!o;"
+;#;$;"rgb;{ ;i;%[o;&;i	;'"4;#;$;@⁄;([ ;i;)[ o;&;i";'"29;#;$;@⁄;([ ;i;)[ o;&;i+;'"38;#;$;@⁄;([ ;i;)[ o;;"green-highlight-o80;@;[ ; 0;i ;!o;"
+;#;$;"	rgba;{ ;i ;%[	o;&;iD;'"63;#;$;@Ì;([ ;i ;)[ o;&;iÒ;'"241;#;$;@Ì;([ ;i ;)[ o;&;i™;'"170;#;$;@Ì;([ ;i ;)[ o;&;f0.80000000000000004 ôö;'"0.8;#;$;@Ì;([ ;i ;)[ o;;"base-color-lightest-o80;@;[ ; 0;i!;!o;"
+;#;$;"	rgba;{ ;i!;%[	o;&;i};'"120;#;$;@;([ ;i!;)[ o;&;iÕ;'"205;#;$;@;([ ;i!;)[ o;&;i◊;'"215;#;$;@;([ ;i!;)[ o;&;f0.80000000000000004 ôö;'"0.8;#;$;@;([ ;i!;)[ o;;"base-color-lighter-o80;@;[ ; 0;i";!o;"
+;#;$;"	rgba;{ ;i";%[	o;&;iI;'"68;#;$;@;([ ;i";)[ o;&;i°;'"161;#;$;@;([ ;i";)[ o;&;i†;'"160;#;$;@;([ ;i";)[ o;&;f0.80000000000000004 ôö;'"0.8;#;$;@;([ ;i";)[ o;;"base-color-o80;@;[ ; 0;i#;!o;"
+;#;$;"	rgba;{ ;i#;%[	o;&;i;'"10;#;$;@5;([ ;i#;)[ o;&;i~;'"126;#;$;@5;([ ;i#;)[ o;&;iã;'"139;#;$;@5;([ ;i#;)[ o;&;f0.80000000000000004 ôö;'"0.8;#;$;@5;([ ;i#;)[ o;;"darker-green-o80;@;[ ; 0;i$;!o;"
+;#;$;"	rgba;{ ;i$;%[	o;&;i;'"13;#;$;@M;([ ;i$;)[ o;&;ia;'"92;#;$;@M;([ ;i$;)[ o;&;ih;'"99;#;$;@M;([ ;i$;)[ o;&;f0.80000000000000004 ôö;'"0.8;#;$;@M;([ ;i$;)[ o;;"	grey;@;[ ; 0;i&;!o;"
+;#;$;"	rgba;{ ;i&;%[	o;&;i8;'"51;#;$;@e;([ ;i&;)[ o;&;i8;'"51;#;$;@e;([ ;i&;)[ o;&;i8;'"51;#;$;@e;([ ;i&;)[ o;&;i;'"1;#;$;@e;([ ;i&;)[ o;;"m1;@;[ ; 0;i);!o;&;i;'"	10px;#;$;{ ;([ ;i);)["pxo;;"m2;@;[ ; 0;i*;!o;&;i;'"	20px;#;$;{ ;([ ;i*;)["pxo;;"m3;@;[ ; 0;i+;!o;&;i-;'"	40px;#;$;{ ;([ ;i+;)["pxo;;"m4;@;[ ; 0;i,;!o;&;iU;'"	80px;#;$;{ ;([ ;i,;)["pxo;;"m5;@;[ ; 0;i-;!o;&;i†;'"
+160px;#;$;{ ;([ ;i-;)["pxo;;"max-width-full;@;[ ; 0;i0;!o;&;iL;'"1100px;#;$;{ ;([ ;i0;)["pxo:Sass::Tree::MixinDefNode;""gradient-base-to-darker-green;@;[
+o;;0;"w/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3ff1aa+0,0d5c63+100 */;@;[ ;[ ;i4o:Sass::Tree::PropNode;o;*	;#;$;"green-highlight;{ ;i5:
+@tabsi :@prop_syntax:new;["background;@;[ ;i5o;,;o;"
+;#;$;"-moz-linear-gradient;{ ;i6;%[o;&;i2;'"
+45deg;#;$;@æ;([ ;i6;)["dego:Sass::Script::Operation:@operator:concat;#;$:@operand2o;&;i ;'"0%;#;$;@æ;([ ;i6;)["%;@æ;i6:@operand1o;*	;#;$;"green-highlight;@æ;i6o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@æ;([ ;i6;)["%;@æ;i6;4o;*	;#;$;"darker-green;@æ;i6;-i ;.;/;["background;@;[ ;i6o;,;o;"
+;#;$;"-webkit-linear-gradient;{ ;i7;%[o;&;i2;'"
+45deg;#;$;@€;([ ;i7;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@€;([ ;i7;)["%;@€;i7;4o;*	;#;$;"green-highlight;@€;i7o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@€;([ ;i7;)["%;@€;i7;4o;*	;#;$;"darker-green;@€;i7;-i ;.;/;["background;@;[ ;i7o;,;o;"
+;#;$;"linear-gradient;{ ;i8;%[o;&;i2;'"
+45deg;#;$;@¯;([ ;i8;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@¯;([ ;i8;)["%;@¯;i8;4o;*	;#;$;"green-highlight;@¯;i8o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@¯;([ ;i8;)["%;@¯;i8;4o;*	;#;$;"darker-green;@¯;i8;-i ;.;/;["background;@;[ ;i8:@has_childrenT;i3;%[ o;+;"&gradient-base-to-darker-green-o80;@;[
+o;;0;"w/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3ff1aa+0,0d5c63+100 */;@;[ ;[ ;i<o;,;o;*	;#;$;"green-highlight-o80;{ ;i=;-i ;.;/;["background;@;[ ;i=o;,;o;"
+;#;$;"-moz-linear-gradient;{ ;i>;%[o;&;i2;'"
+45deg;#;$;@$;([ ;i>;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@$;([ ;i>;)["%;@$;i>;4o;*	;#;$;"green-highlight-o80;@$;i>o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@$;([ ;i>;)["%;@$;i>;4o;*	;#;$;"darker-green-o80;@$;i>;-i ;.;/;["background;@;[ ;i>o;,;o;"
+;#;$;"-webkit-linear-gradient;{ ;i?;%[o;&;i2;'"
+45deg;#;$;@A;([ ;i?;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@A;([ ;i?;)["%;@A;i?;4o;*	;#;$;"green-highlight-o80;@A;i?o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@A;([ ;i?;)["%;@A;i?;4o;*	;#;$;"darker-green-o80;@A;i?;-i ;.;/;["background;@;[ ;i?o;,;o;"
+;#;$;"linear-gradient;{ ;i@;%[o;&;i2;'"
+45deg;#;$;@^;([ ;i@;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@^;([ ;i@;)["%;@^;i@;4o;*	;#;$;"green-highlight-o80;@^;i@o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@^;([ ;i@;)["%;@^;i@;4o;*	;#;$;"darker-green-o80;@^;i@;-i ;.;/;["background;@;[ ;i@;5T;i;;%[ o;+;")gradient-base-to-darker-green--short;@;[
+o;;0;"w/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3ff1aa+0,0d5c63+100 */;@;[ ;[ ;iDo;,;o;*	;#;$;"green-highlight;{ ;iE;-i ;.;/;["background;@;[ ;iEo;,;o;"
+;#;$;"-moz-linear-gradient;{ ;iF;%[o;&;i2;'"
+45deg;#;$;@ä;([ ;iF;)["dego;0;1;2;#;$;3o;&;i;'"20%;#;$;@ä;([ ;iF;)["%;@ä;iF;4o;*	;#;$;"green-highlight;@ä;iFo;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@ä;([ ;iF;)["%;@ä;iF;4o;*	;#;$;"darker-green;@ä;iF;-i ;.;/;["background;@;[ ;iFo;,;o;"
+;#;$;"-webkit-linear-gradient;{ ;iG;%[o;&;i2;'"
+45deg;#;$;@ß;([ ;iG;)["dego;0;1;2;#;$;3o;&;i;'"20%;#;$;@ß;([ ;iG;)["%;@ß;iG;4o;*	;#;$;"green-highlight;@ß;iGo;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@ß;([ ;iG;)["%;@ß;iG;4o;*	;#;$;"darker-green;@ß;iG;-i ;.;/;["background;@;[ ;iGo;,;o;"
+;#;$;"linear-gradient;{ ;iH;%[o;&;i2;'"
+45deg;#;$;@ƒ;([ ;iH;)["dego;0;1;2;#;$;3o;&;i;'"20%;#;$;@ƒ;([ ;iH;)["%;@ƒ;iH;4o;*	;#;$;"green-highlight;@ƒ;iHo;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@ƒ;([ ;iH;)["%;@ƒ;iH;4o;*	;#;$;"darker-green;@ƒ;iH;-i ;.;/;["background;@;[ ;iH;5T;iC;%[ o;+;"gradient-test;@;[o;;0;"w/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0a1d33+0,1ae091+100 */;@;[ ;[ ;iLo;,;o;"
+;#;$;"rgb;{ ;iM;%[o;&;i;'"10;#;$;@È;([ ;iM;)[ o;&;i";'"29;#;$;@È;([ ;iM;)[ o;&;i8;'"51;#;$;@È;([ ;iM;)[ ;-i ;.;/;["background;@;[ ;iMo;;0;"/* Old browsers */;@;[ ;[ ;iMo;,;o;"
+;#;$;"-moz-linear-gradient;{ ;iN;%[o;&;i2;'"
+45deg;#;$;@;([ ;iN;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@;([ ;iN;)["%;@;iN;4o;"
+;#;$;"	rgba;@;iN;%[	o;&;i;'"10;#;$;@;([ ;iN;)[ o;&;i";'"29;#;$;@;([ ;iN;)[ o;&;i8;'"51;#;$;@;([ ;iN;)[ o;&;i;'"1;#;$;@;([ ;iN;)[ o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@;([ ;iN;)["%;@;iN;4o;"
+;#;$;"	rgba;@;iN;%[	o;&;i;'"26;#;$;@;([ ;iN;)[ o;&;i‡;'"224;#;$;@;([ ;iN;)[ o;&;ië;'"145;#;$;@;([ ;iN;)[ o;&;i;'"1;#;$;@;([ ;iN;)[ ;-i ;.;/;["background;@;[ ;iNo;,;o;"
+;#;$;"-webkit-linear-gradient;{ ;iO;%[o;&;i2;'"
+45deg;#;$;@@;([ ;iO;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@@;([ ;iO;)["%;@@;iO;4o;"
+;#;$;"	rgba;@@;iO;%[	o;&;i;'"10;#;$;@@;([ ;iO;)[ o;&;i";'"29;#;$;@@;([ ;iO;)[ o;&;i8;'"51;#;$;@@;([ ;iO;)[ o;&;i;'"1;#;$;@@;([ ;iO;)[ o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@@;([ ;iO;)["%;@@;iO;4o;"
+;#;$;"	rgba;@@;iO;%[	o;&;i;'"26;#;$;@@;([ ;iO;)[ o;&;i‡;'"224;#;$;@@;([ ;iO;)[ o;&;ië;'"145;#;$;@@;([ ;iO;)[ o;&;i;'"1;#;$;@@;([ ;iO;)[ ;-i ;.;/;["background;@;[ ;iOo;,;o;"
+;#;$;"linear-gradient;{ ;iP;%[o;&;i2;'"
+45deg;#;$;@;([ ;iP;)["dego;0;1;2;#;$;3o;&;i ;'"0%;#;$;@;([ ;iP;)["%;@;iP;4o;"
+;#;$;"	rgba;@;iP;%[	o;&;i;'"10;#;$;@;([ ;iP;)[ o;&;i";'"29;#;$;@;([ ;iP;)[ o;&;i8;'"51;#;$;@;([ ;iP;)[ o;&;i;'"1;#;$;@;([ ;iP;)[ o;0;1;2;#;$;3o;&;ii;'"	100%;#;$;@;([ ;iP;)["%;@;iP;4o;"
+;#;$;"	rgba;@;iP;%[	o;&;i;'"26;#;$;@;([ ;iP;)[ o;&;i‡;'"224;#;$;@;([ ;iP;)[ o;&;ië;'"145;#;$;@;([ ;iP;)[ o;&;i;'"1;#;$;@;([ ;iP;)[ ;-i ;.;/;["background;@;[ ;iP;5T;iK;%[ o;+;"	mlra;@;[o;,;o:Sass::Script::String;"	auto;#;$:
+@type:identifier;-i ;.;/;["margin-left;@;[ ;iTo;,;o;6;"	auto;#;$;7;8;-i ;.;/;["margin-right;@;[ ;iU;5T;iS;%[ o:Sass::Tree::RuleNode;-i :
+@rule["kdiv:before, ul:before, article:before, aside:before, details:before, figcaption:before, figure:before, footer:before, header:before, hgroup:before, menu:before, nav:before, section:before, div:after, ul:after, article:after, aside:after, details:after, figcaption:after, figure:after, footer:after, header:after, hgroup:after, menu:after, nav:after, section:after;@;[o;,;o;6;"	none;#;$;7;8;-i ;.;/;["content;@;[ ;i\;5T;i[o;;i ;"//* Container for whole top header block */;@;[ ;[ ;ico;9;-i ;:["9#colibri .h-navigation_outer.style-local-16-h2-outer;@;[o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;ieo;,;o;6;"column nowrap;#;$;7;8;-i ;.;/;["flex-flow;@;[ ;if;5T;ido;;i ;""/* Logo & Navigation block */;@;[ ;[ ;iio;9;-i ;:["#colibri .style-2;@;[o;,;o;6;"1;#;$;7;8;-i ;.;/;["
+order;@;[ ;iko;,;o;0;1;2;#;$;3o;*	;#;$;"m2;{ ;il;@¸;il;4o;&;i ;'"0;#;$;@¸;([ ;il;)[ ;-i ;.;/;["padding;@;[ ;ilo;,;o;"
+;#;$;"	rgba;{ ;im;%[	o;&;iˇ;'"255;#;$;@;([ ;im;)[ o;&;iˇ;'"255;#;$;@;([ ;im;)[ o;&;iˇ;'"255;#;$;@;([ ;im;)[ o;&;f0.29999999999999999 33;'"0.3;#;$;@;([ ;im;)[ ;-i ;.;/;["background-color;@;[ ;im;5T;ijo;;i ;"M/* Outer container element for all the top menu items, social media,  */;@;[ ;[ ;ipo;9;-i ;:["o#colibri .h-navigation_outer.style-local-16-h2-outer > .h-section-grid-container.h-section-fluid-container;@;[o;,;o;6;"2;#;$;7;8;-i ;.;/;["
+order;@;[ ;ir;5T;iqo;;i ;" /* Green gradient button */;@;[ ;[ ;ivo;9;-i ;:["#colibri a.style-31;@;[	o;,;o;6;"relative;#;$;7;8;-i ;.;/;["position;@;[ ;ixo;,;o;6;"transparent;#;$;7;8;-i ;.;/;["background;@;[ ;iyo;,;o;6;"10;#;$;7;8;-i ;.;/;["z-index;@;[ ;izo;,;o;0;1;2;#;$;3o;*	;#;$;"darker-green;{ ;i{;@I;i{;4o;0;1;2;#;$;3o;&;i;'"1px;#;$;@I;([ ;i{;)["px;@I;i{;4o;&;i˙;'"	-1px;#;$;@I;([ ;i{;)["px;-i ;.;/;["text-shadow;@;[ ;i{;5T;iwo;;i ;"J/* Green gradient button:before for background-gradient transition */;@;[ ;[ ;i~o;9;-i ;:[" #colibri a.style-31::before;@;[o:Sass::Tree::MixinNode
+;""gradient-base-to-darker-green;@;[ ;i{;%[ o;,;o;6;""";#;$;7;8;-i ;.;/;["content;@;[ ;i|o;,;o;6;"absolute;#;$;7;8;-i ;.;/;["position;@;[ ;i}o;,;o;6;"	100%;#;$;7;8;-i ;.;/;["
+width;@;[ ;i~o;,;o;6;"	100%;#;$;7;8;-i ;.;/;["height;@;[ ;io;,;o;6;"0;#;$;7;8;-i ;.;/;["top;@;[ ;iÄo;,;o;6;"0;#;$;7;8;-i ;.;/;["bottom;@;[ ;iÅo;,;o;6;"0;#;$;7;8;-i ;.;/;["	left;@;[ ;iÇo;,;o;6;"0;#;$;7;8;-i ;.;/;["
+right;@;[ ;iÉo;,;o;&;i˙;'"-1;#;$;{ ;([ ;iÑ;)[ ;-i ;.;/;["z-index;@;[ ;iÑo;,;o;6;"1;#;$;7;8;-i ;.;/;["opacity;@;[ ;iÖo;,;o;6;"
+300px;#;$;7;8;-i ;.;/;["border-radius;@;[ ;iÜo;,;o;6;"all .5s;#;$;7;8;-i ;.;/;["transition;@;[ ;iá;5T;io;;i ;"H/* Override styles from parent theme for green button hover, etc */;@;[ ;[ ;iäo;9;-i ;:["U#colibri a.style-31:hover,
+#colibri a.style-31:focus,
+#colibri a.style-31:active;@;[o;,;o;6;"transparent;#;$;7;8;-i ;.;/;["background;@;[ ;ié;5T;iço;;i ;"+/* Transition opacity on hover, etc */;@;[ ;[ ;iëo;9;-i ;:["m#colibri a.style-31:hover::before,
+#colibri a.style-31:focus::before,
+#colibri a.style-31:active::before;@;[o;,;o;6;"0.8;#;$;7;8;-i ;.;/;["opacity;@;[ ;iï;5T;iîo;;i ;"'/* Contact icons at top of page */;@;[ ;[ ;iòo;9;-i ;:["#colibri .style-22-icon;@;[o;,;o;*	;#;$;"green-highlight-light;{ ;iö;-i ;.;/;["	fill;@;[ ;iö;5T;iôo;;i ;"3/* text of the contact links at top of page */;@;[ ;[ ;iùo;9;-i ;:[""#colibri .style-22 .list-text;@;[o;,;o;6;"all .5s;#;$;7;8;-i ;.;/;["transition;@;[ ;iü;5T;iûo;;i ;">/* hover, etc for text of contact links at top of page */;@;[ ;[ ;i¢o;9;-i ;:["s#colibri .style-22 .list-text:hover,
+#colibri .style-22 .list-text:focus,
+#colibri .style-22 .list-text:active;@;[o;,;o;*	;#;$;"green-highlight-light;{ ;i¶;-i ;.;/;["
+color;@;[ ;i¶;5T;i•o;;i ;"/* Logo */;@;[ ;[ ;i©o;9;-i ;:["!#colibri .style-5 .logo-text;@;[o;,;o;6;"all .5s;#;$;7;8;-i ;.;/;["transition;@;[ ;i´o;,;o;6;"uppercase;#;$;7;8;-i ;.;/;["text-transform;@;[ ;i¨;5T;i™o;;i ;"/* Logo hover, etc */;@;[ ;[ ;iØo;9;-i ;:["p#colibri .style-5 .logo-text:hover,
+#colibri .style-5 .logo-text:focus,
+#colibri .style-5 .logo-text:active;@;[o;,;o;*	;#;$;"green-highlight-light;{ ;i≥;-i ;.;/;["
+color;@;[ ;i≥;5T;i≤o;;i ;",/* Hover, etc for social media icons */;@;[ ;[ ;i∂o;9;-i ;:["}#colibri .style-24 .icon-container:hover,
+#colibri .style-24 .icon-container:focus,
+#colibri .style-24 .icon-container:active;@;[o;,;o;*	;#;$;"green-highlight-light;{ ;i∫;-i ;.;/;["	fill;@;[ ;i∫;5T;iπo;;i ;"7/* Primary navigation at top of page hover, etc */;@;[ ;[ ;iΩo;9;-i ;:["˚#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li > a:hover,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li > a:focus,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li > a:active;@;[o;,;o;*	;#;$;"green-highlight-light;{ ;i¡;-i ;.;/;["
+color;@;[ ;i¡;5T;i¿o;;i ;"S/* Primary navigation of current page item while at tops of page hover, etc */;@;[ ;[ ;iƒo;9;-i ;:["1#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:focus,
+#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:active;@;[o;,;o;*	;#;$;"green-highlight-light;{ ;i»;-i ;.;/;["
+color;@;[ ;i»;5T;i«o;;i ;"5/* Remove underline effects of main nav items */;@;[ ;[ ;iÀo;9;-i ;:["©#colibri .style-9 > div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after, #colibri .style-9 ul.colibri-menu.bordered-active-item > li::before;@;[o;,;o;6;"transparent;#;$;7;8;-i ;.;/;["background-color;@;[ ;iÕ;5T;iÃo;;i ;"D/* Removing underline of active nav link while page scrolled */;@;[ ;[ ;i–o;9;-i ;:["¶#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,
+#colibri .h-navigation_sticky .style-9 ul.colibri-menu.bordered-active-item > li::before,
+#colibri .h-navigation_sticky.style-9 > div > .colibri-menu-container > ul.colibri-menu.bordered-active-item > li::after,
+#colibri .h-navigation_sticky.style-9 ul.colibri-menu.bordered-active-item > li::before;@;[o;,;o;*	;#;$;"
+black;{ ;i’;-i ;.;/;["
+color;@;[ ;i’o;,;o;6;"transparent;#;$;7;8;-i ;.;/;["background-color;@;[ ;i÷;5T;i‘o;;i ;"-/* Adjusting color of active nav link */;@;[ ;[ ;iŸo;9;-i ;:["x#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a;@;[o;,;o;*	;#;$;"
+black;{ ;i€;-i ;.;/;["
+color;@;[ ;i€;5T;i⁄o;;i ;"4/* Hover effect for logo while page scrolled */;@;[ ;[ ;iﬁo;9;-i ;:["™#colibri .h-navigation_sticky .style-5 .logo-text:hover,
+#colibri .h-navigation_sticky .style-5 .logo-text:focus,
+#colibri .h-navigation_sticky .style-5 .logo-text:active;@;[o;,;o;*	;#;$;"green-highlight;{ ;i‚;-i ;.;/;["
+color;@;[ ;i‚;5T;i·o;;i ;">/* Hover, etc effect for nav links while page scrolled */;@;[ ;[ ;iÂo;9;-i ;:["´#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li:hover > a,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li:focus > a,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li:active > a,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:hover,
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:focus
+#colibri .h-navigation_sticky .style-9 > div > .colibri-menu-container > ul.colibri-menu > li.current_page_item > a:active;@;[o;,;o;*	;#;$;"green-highlight;{ ;iÏ;-i ;.;/;["
+color;@;[ ;iÏ;5T;iÎo;;i ;"2/* first child of the top contact info bar */;@;[ ;[ ;iÔo;9;-i ;:["#colibri .style-20;@;[o;,;o;0;1;2;#;$;3o;&;i ;'"0;#;$;{ ;([ ;iÒ;)[ ;@£;iÒ;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@£;([ ;iÒ;)[ ;@£;iÒ;4o;*	;#;$;"m1;@£;iÒ;-i ;.;/;["padding;@;[ ;iÒo;,;o;"
+;#;$;"	rgba;{ ;iÚ;%[	o;&;iˇ;'"255;#;$;@≥;([ ;iÚ;)[ o;&;iˇ;'"255;#;$;@≥;([ ;iÚ;)[ o;&;iˇ;'"255;#;$;@≥;([ ;iÚ;)[ o;&;f0.20000000000000001 ôö;'"0.2;#;$;@≥;([ ;iÚ;)[ ;-i ;.;/;["background-color;@;[ ;iÚo;,;o;6;"transparent;#;$;7;8;-i ;.;/;["background-color;@;[ ;iÛ;5T;io;;i ;"-/* grandchild of top contact info bar */;@;[ ;[ ;iˆo;9;-i ;:["2#colibri .style-20 .h-section-boxed-container;@;[o;;
+;"	mlra;@;[ ;i¯;%[ o;,;o;6;"transparent;#;$;7;8;-i ;.;/;["background;@;[ ;i˘o;,;o;*	;#;$;"max-width-full;{ ;i˙;-i ;.;/;["max-width;@;[ ;i˙;5T;i˜o;;i ;">/* Prevent top contact bar from being hidden on mobile */;@;[ ;[ ;i˝o;9;-i ;:[".h-hide-sm;@;[o;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;iˇ;5T;i˛o;;i ;"L/* Inside-most container of the contact info and social media blocks */;@;[ ;[ ;io;9;-i ;:["#colibri .h-hide-sm .h-row;@;[
+o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;io;,;o;6;"row nowrap;#;$;7;8;-i ;.;/;["flex-flow;@;[ ;io;,;o;6;"space-between !important;#;$;7;8;-i ;.;/;["justify-content;@;[ ;io;,;o;6;"	100%;#;$;7;8;-i ;.;/;["
+width;@;[ ;io;,;o;0;1;2;#;$;3o;*	;#;$;"m2;{ ;i;@;i;4o;*	;#;$;"m1;@;i;-i ;.;/;["padding;@;[ ;i;5T;io;;i ;"/* Contact info block */;@;[ ;[ ;io;9;-i ;:["2#colibri .h-hide-sm .style-local-16-h21-outer;@;[o;,;o;6;"1 1 auto;#;$;7;8;-i ;.;/;["	flex;@;[ ;i;5T;io;;i ;"//* list items within contact info block */;@;[ ;[ ;io;9;-i ;:["=#colibri .h-hide-sm .style-local-16-h21-outer .list-item;@;[o;,;o;6;"2px;#;$;7;8;-i ;.;/;["margin-bottom;@;[ ;io;,;o;6;"0 0 auto;#;$;7;8;-i ;.;/;["	flex;@;[ ;i;5T;io;9;-i ;:["J#colibri .h-hide-sm .style-local-16-h21-outer .list-item:last-of-type;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin-bottom;@;[ ;i;5T;io;;i ;"+/* ul within the contact info block */;@;[ ;[ ;io;9;-i ;:["'.ul-list-icon.horizontal-on-mobile;@;[o;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;i;5T;io;;i ;"+/* li within the contact info block */;@;[ ;[ ;io;9;-i ;:["2.ul-list-icon.horizontal-on-mobile .list-item;@;[o;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;i ;5T;io;;i ;"G/* max-width on small screens so social media icons display 2x2 */;@;[ ;[ ;i#o;9;-i ;:["2#colibri .h-hide-sm .style-local-16-h23-outer;@;[o;,;o;6;"	80px;#;$;7;8;-i ;.;/;["max-width;@;[ ;i%o;,;o;6;"
+unset;#;$;7;8;-i ;.;/;["
+width;@;[ ;i&;5T;i$o;;i ;"!/* increase size of icons */;@;[ ;[ ;i)o;9;-i ;:["'#colibri .style-24 .icon-container;@;[o;,;o;6;"	22px;#;$;7;8;-i ;.;/;["
+width;@;[ ;i+o;,;o;6;"	22px;#;$;7;8;-i ;.;/;["height;@;[ ;i,;5T;i*o;;i ;"K/* shrink space between logo and menu icon so logo 1 line long only */;@;[ ;[ ;i/o;9;-i ;:["&#colibri .style-local-16-h6-outer;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["max-width;@;[ ;i1;5T;i0o;9;-i ;:["4#colibri .style-4-outer.style-local-16-h4-outer;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["padding-left;@;[ ;i5;5T;i4o;;i ;"$/* Menu Icon outer container */;@;[ ;[ ;i8o;9;-i ;:["&#colibri .style-local-16-h8-outer;@;[o;,;o;"
+;#;$;"translateX;{ ;i:;%[o;&;i;'"	15px;#;$;@≥;([ ;i:;)["px;-i ;.;/;["transform;@;[ ;i:;5T;i9o;;i ;"!/* Social Icons Container */;@;[ ;[ ;i=o;9;-i ;:[".h-social-icons;@;[o;,;o;"
+;#;$;"translateX;{ ;i?;%[o;&;i
+;'"5px;#;$;@»;([ ;i?;)["px;-i ;.;/;["transform;@;[ ;i?o;,;o;6;"flex-end !important;#;$;7;8;-i ;.;/;["justify-content;@;[ ;i@;5T;i>o;;i ;"?/* Adjust the linkedin and github social icon positions */;@;[ ;[ ;iCo;9;-i ;:["|#colibri .style-24 .social-icon-container:nth-last-of-type(1),
+#colibri .style-24 .social-icon-container:nth-last-of-type(2);@;[o;,;o;6;"2px;#;$;7;8;-i ;.;/;["padding-top;@;[ ;iF;5T;iEo;;i ;"/* Hero video section */;@;[ ;[ ;iIo;9;-i ;:["#colibri #hero;@;[o;,;o;*	;#;$;"m2;{ ;iK;-i ;.;/;["padding-left;@;[ ;iKo;,;o;*	;#;$;"m2;{ ;iL;-i ;.;/;["padding-right;@;[ ;iL;5T;iJo;;i ;"&/* Main header in hero section */;@;[ ;[ ;iOo;9;-i ;:["#colibri #hero h1;@;[o;,;o;6;"2em;#;$;7;8;-i ;.;/;["font-size;@;[ ;iQo;,;o;6;"1.1;#;$;7;8;-i ;.;/;["line-height;@;[ ;iRo;,;o;*	;#;$;"m3;{ ;iS;-i ;.;/;["margin-bottom;@;[ ;iS;5T;iPo;;i ;"9/* Container for secondary header in hero section */;@;[ ;[ ;iVo;9;-i ;:["'#colibri #hero .style-local-16-h29;@;[o;,;o;*	;#;$;"m3;{ ;iX;-i ;.;/;["margin-bottom;@;[ ;iX;5T;iWo;;i ;"+/* Secondary header in hero section */;@;[ ;[ ;i[o;9;-i ;:["#colibri #hero .style-29 p;@;[o;,;o;6;"	.7em;#;$;7;8;-i ;.;/;["font-size;@;[ ;i]o;,;o;6;"1.3;#;$;7;8;-i ;.;/;["line-height;@;[ ;i^;5T;i\o;;i ;":/* Page section created by wp-calibri with spacers */;@;[ ;[ ;iao;9;-i ;:["'#content .h-section-global-spacing;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["padding;@;[ ;ic;5T;ibo;9;-i ;:["(#content .h-section-boxed-container;@;[o;,;o;6;"
+unset;#;$;7;8;-i ;.;/;["max-width;@;[ ;ig;5T;ifo;;i ;"/* Footer container */;@;[ ;[ ;ijo;9;-i ;:["#colibri .jed-footer;@;[	o;,;o;*	;#;$;"
+white;{ ;il;-i ;.;/;["
+color;@;[ ;ilo;,;o;*	;#;$;"m2;{ ;im;-i ;.;/;["padding;@;[ ;imo;,;o;*	;#;$;"
+black;{ ;in;-i ;.;/;["background-color;@;[ ;ino;,;o;6;"center;#;$;7;8;-i ;.;/;["text-align;@;[ ;io;5T;iko;;i ;"/* SECTION STYLES */;@;[ ;[ ;iwo;;i ;"H/* Fixing issue w/ wp-colibri sections causing horizontal scroll */;@;[ ;[ ;iyo;9;-i ;:["#colibri .jed-section;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m2;{ ;i{;@Ö;i{;4o;*	;#;$;"m4;@Ö;i{;-i ;.;/;["padding;@;[ ;i{o;,;o;*	;#;$;"
+white;{ ;i|;-i ;.;/;["background-color;@;[ ;i|o;,;o;6;"	left;#;$;7;8;-i ;.;/;["text-align;@;[ ;i};5T;izo;9;-i ;:["#colibri .content .h-row;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin;@;[ ;iÅo;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;iÇ;5T;iÄo;9;-i ;:["#colibri .h-col;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["padding;@;[ ;iÖ;5T;iÑo;9;-i ;:["##colibri .jed-section__heading;@;[o;,;o;6;"900;#;$;7;8;-i ;.;/;["font-weight;@;[ ;iâo;,;o;*	;#;$;"m4;{ ;iä;-i ;.;/;["margin-bottom;@;[ ;iäo;,;o;6;"center;#;$;7;8;-i ;.;/;["text-align;@;[ ;iã;5T;iào;9;-i ;:["&#colibri .jed-section__subheading;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin;@;[ ;iè;5T;iéo;9;-i ;:["-#colibri .jed-section--white__subheading;@;[o;;
+;""gradient-base-to-darker-green;@;[ ;iì;%[ o;,;o;6;"	text;#;$;7;8;-i ;.;/;["-webkit-background-clip;@;[ ;iîo;,;o;6;"transparent;#;$;7;8;-i ;.;/;["-webkit-text-fill-color;@;[ ;iï;5T;iío;9;-i ;:["4#colibri .jed-section--white__subheading--short;@;[o;;
+;")gradient-base-to-darker-green--short;@;[ ;iò;%[ o;,;o;6;"	text;#;$;7;8;-i ;.;/;["-webkit-background-clip;@;[ ;iôo;,;o;6;"transparent;#;$;7;8;-i ;.;/;["-webkit-text-fill-color;@;[ ;iö;5T;ióo;9;-i ;:["'#colibri .jed-section__subheading4;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin;@;[ ;iûo;,;o;6;"900;#;$;7;8;-i ;.;/;["font-weight;@;[ ;iüo;,;o;6;"1.1;#;$;7;8;-i ;.;/;["line-height;@;[ ;i†;5T;iùo;9;-i ;:["%#colibri .jed-section--basecolor;@;[o;,;o;*	;#;$;"base-color-lighter;{ ;i§;-i ;.;/;["background;@;[ ;i§o;,;o;*	;#;$;"darkest-green;{ ;i•;-i ;.;/;["background-color;@;[ ;i•;5T;i£o;9;-i ;:[".#colibri .jed-section--basecolor__heading;@;[o;,;o;*	;#;$;"
+white;{ ;i©;-i ;.;/;["
+color;@;[ ;i©;5T;i®o;9;-i ;:["1#colibri .jed-section--basecolor__subheading;@;[o;,;o;*	;#;$;"
+white;{ ;i≠;-i ;.;/;["
+color;@;[ ;i≠o;,;o;6;"center;#;$;7;8;-i ;.;/;["text-align;@;[ ;iÆo;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;iØ;@C;iØ;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@C;([ ;iØ;)[ ;@C;iØ;4o;*	;#;$;"m4;@C;iØ;-i ;.;/;["margin;@;[ ;iØ;5T;i¨o;9;-i ;:["?#colibri .jed-section--basecolor__subheading:first-of-type;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i≥;@V;i≥;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@V;([ ;i≥;)[ ;@V;i≥;4o;&;i ;'"0;#;$;@V;([ ;i≥;)[ ;-i ;.;/;["margin;@;[ ;i≥;5T;i≤o;9;-i ;:["'#colibri .jed-section--faded-green;@;[o;,;o;*	;#;$;"faded-green;{ ;i∑;-i ;.;/;["background-color;@;[ ;i∑;5T;i∂o;9;-i ;:["0#colibri .jed-section--faded-green__heading;@;[o;,;o;*	;#;$;"	grey;{ ;iª;-i ;.;/;["
+color;@;[ ;iª;5T;i∫o;9;-i ;:["3#colibri .jed-section--faded-green__subheading;@;[o;,;o;*	;#;$;"
+black;{ ;iø;-i ;.;/;["
+color;@;[ ;iøo;,;o;6;"center;#;$;7;8;-i ;.;/;["text-align;@;[ ;i¿o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i¡;@é;i¡;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@é;([ ;i¡;)[ ;@é;i¡;4o;*	;#;$;"m4;@é;i¡;-i ;.;/;["margin;@;[ ;i¡;5T;iæo;9;-i ;:["A#colibri .jed-section--faded-green__subheading:first-of-type;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i≈;@°;i≈;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@°;([ ;i≈;)[ ;@°;i≈;4o;&;i ;'"0;#;$;@°;([ ;i≈;)[ ;-i ;.;/;["margin;@;[ ;i≈;5T;iƒo;9;-i ;:["&#colibri .jed-section--dark-green;@;[o;,;o;*	;#;$;"darkest-green;{ ;i…;-i ;.;/;["background-color;@;[ ;i…o;,;o;6
+;"Nurl(https://www.joedisalvo.com/wp-content/uploads/contact-background.jpg);#;$;{ ;i ;7;8;-i ;.;/;["background-image;@;[ ;i o;,;o;6;"
+cover;#;$;7;8;-i ;.;/;["background-size;@;[ ;iÀ;5T;i»o;9;-i ;:["/#colibri .jed-section--dark-green__heading;@;[o;,;o;*	;#;$;"
+white;{ ;iœ;-i ;.;/;["
+color;@;[ ;iœ;5T;iŒo;9;-i ;:["2#colibri .jed-section--dark-green__subheading;@;[o;,;o;*	;#;$;"
+white;{ ;i”;-i ;.;/;["
+color;@;[ ;i”o;,;o;6;"center;#;$;7;8;-i ;.;/;["text-align;@;[ ;i‘o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i’;@Ê;i’;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@Ê;([ ;i’;)[ ;@Ê;i’;4o;*	;#;$;"m4;@Ê;i’;-i ;.;/;["margin;@;[ ;i’;5T;i“o;9;-i ;:["@#colibri .jed-section--dark-green__subheading:first-of-type;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;iŸ;@˘;iŸ;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@˘;([ ;iŸ;)[ ;@˘;iŸ;4o;&;i ;'"0;#;$;@˘;([ ;iŸ;)[ ;-i ;.;/;["margin;@;[ ;iŸ;5T;iÿo;;i ;"/* RESUME SECTION */;@;[ ;[ ;iﬂo;9;-i ;:["#colibri .jed-resume-ctr;@;[o;;
+;"	mlra;@;[ ;i·;%[ o;,;o;*	;#;$;"max-width-full;{ ;i‚;-i ;.;/;["max-width;@;[ ;i‚;5T;i‡o;9;-i ;:["#colibri .jed-resume__row;@;[o;,;o;*	;#;$;"m3;{ ;iÊ;-i ;.;/;["margin-bottom;@;[ ;iÊ;5T;iÂo;9;-i ;:["/#colibri .jed-resume__professional-summary;@;[o;,;o;*	;#;$;"m2;{ ;iÍ;-i ;.;/;["margin-top;@;[ ;iÍ;5T;iÈo;9;-i ;:[")#colibri .jed-resume__subheading-ctr;@;[o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;iÓo;,;o;6;"flex-start;#;$;7;8;-i ;.;/;["justify-content;@;[ ;iÔ;5T;iÌo;9;-i ;:[",#colibri .jed-resume__skills-subheading;@;[o;,;o;*	;#;$;"m2;{ ;iÛ;-i ;.;/;["margin-top;@;[ ;iÛ;5T;iÚo;9;-i ;:["$#colibri .jed-resume__skills-ul;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin;@;[ ;i˜;5T;iˆo;9;-i ;:["$#colibri .jed-resume__skills-li;@;[o;,;o;6;"inline-block;#;$;7;8;-i ;.;/;["display;@;[ ;i˚o;,;o;6;"0 10px 0 15px;#;$;7;8;-i ;.;/;["padding;@;[ ;i¸o;,;o;6;"relative;#;$;7;8;-i ;.;/;["position;@;[ ;i˝;5T;i˙o;9;-i ;:["+#colibri .jed-resume__skills-li:before;@;[o;,;o;6;""\2022";#;$;7;8;-i ;.;/;["content;@;[ ;io;,;o;6;"absolute;#;$;7;8;-i ;.;/;["position;@;[ ;io;,;o;6;"0;#;$;7;8;-i ;.;/;["top;@;[ ;io;,;o;6;"4px;#;$;7;8;-i ;.;/;["	left;@;[ ;io;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;io;,;o;*	;#;$;"base-color;{ ;i;-i ;.;/;["
+color;@;[ ;i;5T;i o;9;-i ;:["#colibri .jed-resume__name;@;[	o;,;o;6;"italic;#;$;7;8;-i ;.;/;["font-style;@;[ ;i
+o;,;o;6;"400;#;$;7;8;-i ;.;/;["font-weight;@;[ ;io;,;o;6;"1em;#;$;7;8;-i ;.;/;["font-size;@;[ ;io;,;o;0;1;2;#;$;3o;&;i ;'"0;#;$;{ ;([ ;i;)[ ;@≠	;i;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@≠	;([ ;i;)[ ;@≠	;i;4o;*	;#;$;"m2;@≠	;i;-i ;.;/;["margin;@;[ ;i;5T;i	o;9;-i ;:[")#colibri .jed-resume__job-details-ul;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin;@;[ ;i;5T;io;9;-i ;:[")#colibri .jed-resume__job-details-li;@;[o;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;io;,;o;6;"	15px;#;$;7;8;-i ;.;/;["padding-left;@;[ ;io;,;o;6;"relative;#;$;7;8;-i ;.;/;["position;@;[ ;i;5T;io;9;-i ;:["0#colibri .jed-resume__job-details-li:before;@;[o;,;o;6;""\2022";#;$;7;8;-i ;.;/;["content;@;[ ;io;,;o;6;"absolute;#;$;7;8;-i ;.;/;["position;@;[ ;io;,;o;6;"0;#;$;7;8;-i ;.;/;["top;@;[ ;io;,;o;6;"4px;#;$;7;8;-i ;.;/;["	left;@;[ ;io;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;io;,;o;*	;#;$;"base-color;{ ;i ;-i ;.;/;["
+color;@;[ ;i ;5T;io;;i ;"/* PORTFOLIO SECTION */;@;[ ;[ ;i'o;9;-i ;:[".jed-portfolio;@;[o;,;o;*	;#;$;"max-width-full;{ ;i*;-i ;.;/;["max-width;@;[ ;i*o;,;o;6;"0 auto;#;$;7;8;-i ;.;/;["margin;@;[ ;i+;5T;i)o;9;-i ;:["#colibri .jed-cards-ctr;@;[
+o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;i/o;,;o;6;"row wrap;#;$;7;8;-i ;.;/;["flex-flow;@;[ ;i0o;,;o;6;"center;#;$;7;8;-i ;.;/;["justify-content;@;[ ;i1o;,;o;6;"
+940px;#;$;7;8;-i ;.;/;["max-width;@;[ ;i2o;,;o;6;"0 auto;#;$;7;8;-i ;.;/;["margin;@;[ ;i3;5T;i.o;9;-i ;:["#colibri .jed-card;@;[o;,;o;6;"	100%;#;$;7;8;-i ;.;/;["
+width;@;[ ;i7o;,;o;*	;#;$;"
+white;{ ;i8;-i ;.;/;["background-color;@;[ ;i8o;,;o;*	;#;$;"m3;{ ;i9;-i ;.;/;["margin-bottom;@;[ ;i9o;,;o;6;"2%;#;$;7;8;-i ;.;/;["border-radius;@;[ ;i:o;,;o;6;"
+450px;#;$;7;8;-i ;.;/;["max-width;@;[ ;i;o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;i<o;,;o;6;"column nowrap;#;$;7;8;-i ;.;/;["flex-flow;@;[ ;i=o;,;o;6;"hidden;#;$;7;8;-i ;.;/;["overflow;@;[ ;i>o;,;o;0;1;2;#;$;3o;"
+;#;$;"	rgba;{ ;i?;%[o;*	;#;$;"darkest-green;@t
+;i?o;&;f0.12 ∏;'"	0.12;#;$;@t
+;([ ;i?;)[ ;@t
+;i?;4o;0;1;2;#;$;3o;&;i;'"	12px;#;$;@t
+;([ ;i?;)["px;@t
+;i?;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@t
+;([ ;i?;)[ ;@t
+;i?;4o;&;i ;'"0;#;$;@t
+;([ ;i?;)[ ;-i ;.;/;["box-shadow;@;[ ;i?;5T;i6o;9;-i ;:[")#colibri .jed-card:nth-last-child(1);@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin-bottom;@;[ ;iB;5T;iAo;9;-i ;:["#colibri .jed-card__title;@;[	o;,;o;0;1;2;#;$;3o;*	;#;$;"m2;{ ;iF;@°
+;iF;4o;*	;#;$;"m1;@°
+;iF;-i ;.;/;["padding;@;[ ;iFo;,;o;6;"relative;#;$;7;8;-i ;.;/;["position;@;[ ;iGo;,;o;6;"999999;#;$;7;8;-i ;.;/;["z-index;@;[ ;iHo;,;o;*	;#;$;"
+white;{ ;iI;-i ;.;/;["background;@;[ ;iI;5T;iEo;9;-i ;:["#colibri .jed-card__foot;@;[
+o;,;o;*	;#;$;"m2;{ ;iM;-i ;.;/;["padding;@;[ ;iMo;,;o;6;"	100%;#;$;7;8;-i ;.;/;["height;@;[ ;iNo;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;iOo;,;o;6;"column nowrap;#;$;7;8;-i ;.;/;["flex-flow;@;[ ;iPo;,;o;6;"space-between;#;$;7;8;-i ;.;/;["justify-content;@;[ ;iQ;5T;iLo;9;-i ;:[" #colibri .jed-card__content;@;[o;,;o;6;"no-repeat;#;$;7;8;-i ;.;/;["background-repeat;@;[ ;iUo;,;o;6;"
+cover;#;$;7;8;-i ;.;/;["background-size;@;[ ;iVo;,;o;6;"50%;#;$;7;8;-i ;.;/;["padding-bottom;@;[ ;iWo;,;o;6;"relative;#;$;7;8;-i ;.;/;["position;@;[ ;iXo;,;o;0;1;2;#;$;3o;"
+;#;$;"	rgba;{ ;iY;%[	o;&;i ;'"0;#;$;@˝
+;([ ;iY;)[ o;&;i ;'"0;#;$;@˝
+;([ ;iY;)[ o;&;i ;'"0;#;$;@˝
+;([ ;iY;)[ o;&;f0.40000000000000002 ôö;'"0.4;#;$;@˝
+;([ ;iY;)[ ;@˝
+;iY;4o;0;1;2;#;$;3o;&;i;'"	12px;#;$;@˝
+;([ ;iY;)["px;@˝
+;iY;4o;0;1;2;#;$;3o;&;i ;'"0;#;$;@˝
+;([ ;iY;)[ ;@˝
+;iY;4o;&;i ;'"0;#;$;@˝
+;([ ;iY;)[ ;-i ;.;/;["box-shadow;@;[ ;iYo;,;o;6;"1;#;$;7;8;-i ;.;/;["z-index;@;[ ;iZ;5T;iTo;9;-i ;:["+#colibri .jed-card__content--wordswift;@;[o;,;o;6
+;"Purl(https://www.joedisalvo.com/wp-content/uploads/wordswift-card-image.jpg);#;$;{ ;i^;7;8;-i ;.;/;["background-image;@;[ ;i^;5T;i]o;9;-i ;:["/#colibri .jed-card__content--lease-mileage;@;[o;,;o;6
+;"Turl(https://www.joedisalvo.com/wp-content/uploads/lease-mileage-card-image.jpg);#;$;{ ;ib;7;8;-i ;.;/;["background-image;@;[ ;ib;5T;iao;9;-i ;:["+#colibri .jed-card__content--insurance;@;[o;,;o;6
+;"Surl(https://www.joedisalvo.com/wp-content/uploads/3d-insurance-card-image.jpg);#;$;{ ;if;7;8;-i ;.;/;["background-image;@;[ ;if;5T;ieo;9;-i ;:["'#colibri .jed-card__content--handy;@;[o;,;o;6
+;"Vurl(https://www.joedisalvo.com/wp-content/uploads/handy-hendricks-card-image.jpg);#;$;{ ;ii;7;8;-i ;.;/;["background-image;@;[ ;ii;5T;iho;9;-i ;:["0#colibri .jed-card__content--sc-laundromats;@;[o;,;o;6
+;"Uurl(https://www.joedisalvo.com/wp-content/uploads/sc-laundromats-card-image.jpg);#;$;{ ;il;7;8;-i ;.;/;["background-image;@;[ ;il;5T;iko;9;-i ;:["*#colibri .jed-card__content--owlworks;@;[o;,;o;6
+;"Ourl(https://www.joedisalvo.com/wp-content/uploads/owlworks-card-image.jpg);#;$;{ ;io;7;8;-i ;.;/;["background-image;@;[ ;io;5T;ino;9;-i ;:["##colibri .jed-card__action-ctr;@;[o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;iso;,;o;6;"row nowrap;#;$;7;8;-i ;.;/;["flex-flow;@;[ ;ito;,;o;6;"space-between;#;$;7;8;-i ;.;/;["justify-content;@;[ ;iu;5T;iro;9;-i ;:["+#colibri .jed-card__action-ctr--a-only;@;[o;,;o;6;"flex-end;#;$;7;8;-i ;.;/;["justify-content;@;[ ;iy;5T;ixo;9;-i ;:[""#colibri .jed-card__view-demo;@;[o;,;o;*	;#;$;"
+white;{ ;i};-i ;.;/;["
+color;@;[ ;i}o;,;o;6;"5px 14px;#;$;7;8;-i ;.;/;["padding;@;[ ;i~o;,;o;6;"	none;#;$;7;8;-i ;.;/;["border;@;[ ;io;,;o;6;"pointer;#;$;7;8;-i ;.;/;["cursor;@;[ ;iÄo;,;o;*	;#;$;"	grey;{ ;iÅ;-i ;.;/;["background;@;[ ;iÅo;,;o;6;"	bold;#;$;7;8;-i ;.;/;["font-weight;@;[ ;iÇo;,;o;6;"	15px;#;$;7;8;-i ;.;/;["border-radius;@;[ ;iÉo;,;o;6;"all 0.5s;#;$;7;8;-i ;.;/;["transition;@;[ ;iÑ;5T;i|o;9;-i ;:["s#colibri .jed-card__view-demo:hover,
+#colibri .jed-card__view-demo:focus,
+#colibri .jed-card__view-demo:active;@;[o;,;o;*	;#;$;"base-color;{ ;iä;-i ;.;/;["background;@;[ ;iä;5T;iâo;9;-i ;:["#colibri .jed-card__go-to;@;[
+o;,;o;*	;#;$;"	grey;{ ;ié;-i ;.;/;["
+color;@;[ ;iéo;,;o;6;"	bold;#;$;7;8;-i ;.;/;["font-weight;@;[ ;ièo;,;o;6;"all 0.5s;#;$;7;8;-i ;.;/;["transition;@;[ ;iêo;,;o;6;"relative;#;$;7;8;-i ;.;/;["position;@;[ ;iëo;,;o;6;"
+1.5em;#;$;7;8;-i ;.;/;["padding-left;@;[ ;ií;5T;iço;9;-i ;:["g#colibri .jed-card__go-to:hover,
+#colibri .jed-card__go-to:focus,
+#colibri .jed-card__go-to:active;@;[o;,;o;*	;#;$;"base-color;{ ;iò;-i ;.;/;["
+color;@;[ ;iò;5T;ióo;9;-i ;:["#colibri .jed-icon;@;[o;,;o;6;"100% 100%;#;$;7;8;-i ;.;/;["background-size;@;[ ;iúo;,;o;6;"
+1.3em;#;$;7;8;-i ;.;/;["
+width;@;[ ;iùo;,;o;6;"
+1.3em;#;$;7;8;-i ;.;/;["height;@;[ ;iûo;,;o;6;"
+block;#;$;7;8;-i ;.;/;["display;@;[ ;iüo;,;o;6;"absolute;#;$;7;8;-i ;.;/;["position;@;[ ;i†o;,;o;6;"0;#;$;7;8;-i ;.;/;["	left;@;[ ;i°o;,;o;6;"1px;#;$;7;8;-i ;.;/;["top;@;[ ;i¢;5T;iõo;9;-i ;:["#colibri .jed-icon--github;@;[o;;i ;"&/* background-size: 100% 100%; */;@;[ ;[ ;i•o;,;o;6
+;"Gurl(https://www.joedisalvo.com/wp-content/uploads/github-icon.png);#;$;{ ;i¶;7;8;-i ;.;/;["background-image;@;[ ;i¶;5T;i§o;9;-i ;:["##colibri .jed-icon--external-a;@;[o;,;o;6
+;"Kurl(https://www.joedisalvo.com/wp-content/uploads/external-a-icon.png);#;$;{ ;i©;7;8;-i ;.;/;["background-image;@;[ ;i©;5T;i®o;;i ;"/* CONTACT ME SECTION */;@;[ ;[ ;i≤o;9;-i ;:["'#colibri #jed-section-contact form;@;[o;,;o;6;"
+500px;#;$;7;8;-i ;.;/;["max-width;@;[ ;iµo;,;o;6;"0 auto;#;$;7;8;-i ;.;/;["margin;@;[ ;i∂o;,;o;6;"	40px;#;$;7;8;-i ;.;/;["padding;@;[ ;i∑o;,;o;6;"#ffffff22;#;$;7;8;-i ;.;/;["background;@;[ ;i∏o;,;o;"
+;#;$;"	rgba;{ ;iπ;%[	o;&;iˇ;'"255;#;$;@d;([ ;iπ;)[ o;&;iˇ;'"255;#;$;@d;([ ;iπ;)[ o;&;iˇ;'"255;#;$;@d;([ ;iπ;)[ o;&;f0.14999999999999999 33;'"	0.15;#;$;@d;([ ;iπ;)[ ;-i ;.;/;["background;@;[ ;iπo;,;o;6;"8px;#;$;7;8;-i ;.;/;["border-radius;@;[ ;i∫;5T;i¥o;9;-i ;:["P#colibri #jed-section-contact input,
+#colibri #jed-section-contact textarea;@;[o;,;o;6;"	100%;#;$;7;8;-i ;.;/;["
+width;@;[ ;iøo;,;o;6;"	none;#;$;7;8;-i ;.;/;["border;@;[ ;i¿o;,;o;6;"	10px;#;$;7;8;-i ;.;/;["padding;@;[ ;i¡o;,;o;6;"#ffffff33;#;$;7;8;-i ;.;/;["background;@;[ ;i¬o;,;o;"
+;#;$;"	rgba;{ ;i√;%[	o;&;iˇ;'"255;#;$;@ü;([ ;i√;)[ o;&;iˇ;'"255;#;$;@ü;([ ;i√;)[ o;&;iˇ;'"255;#;$;@ü;([ ;i√;)[ o;&;f0.17999999999999999 ◊
+;'"	0.18;#;$;@ü;([ ;i√;)[ ;-i ;.;/;["background;@;[ ;i√o;,;o;*	;#;$;"
+white;{ ;iƒ;-i ;.;/;["
+color;@;[ ;iƒo;,;o;6;"6px;#;$;7;8;-i ;.;/;["border-radius;@;[ ;i≈;5T;iæo;9;-i ;:["(#colibri #jed-section-contact label;@;[o;,;o;*	;#;$;"
+white;{ ;i…;-i ;.;/;["
+color;@;[ ;i…;5T;i»o;9;-i ;:["%#colibri .jed-contact-submit-ctr;@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin;@;[ ;iÕ;5T;iÃo;9;-i ;:[".google-captcha-msg;@;[o;,;o;6;"	10px;#;$;7;8;-i ;.;/;["font-size;@;[ ;i—o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin-bottom;@;[ ;i“o;,;o;6;"center;#;$;7;8;-i ;.;/;["text-align;@;[ ;i”;5T;i–o;9;-i ;:[".google-captcha-msg a;@;[o;,;o;*	;#;$;"green-highlight;{ ;i◊;-i ;.;/;["
+color;@;[ ;i◊;5T;i÷o:Sass::Tree::DirectiveNode
+;"@media (min-width: 550px);@;[	o;9;-i ;:["#colibri #navigation;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i„;@;i„;4o;&;i ;'"0;#;$;@;([ ;i„;)[ ;-i ;.;/;["padding;@;[ ;i„;5T;i‚o;9;-i ;:["#colibri .h-hide-sm .h-row;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;iÁ;@;iÁ;4o;*	;#;$;"m1;@;iÁ;-i ;.;/;["padding;@;[ ;iÁ;5T;iÊo;9;-i ;:["#colibri #hero;@;[o;,;o;*	;#;$;"m3;{ ;iÎ;-i ;.;/;["padding-left;@;[ ;iÎo;,;o;*	;#;$;"m3;{ ;iÏ;-i ;.;/;["padding-right;@;[ ;iÏ;5T;iÍo;9;-i ;:["#colibri .jed-section;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i;@3;i;4o;*	;#;$;"m4;@3;i;-i ;.;/;["padding;@;[ ;i;5T;iÔ;5T;i‡o;<
+;"@media (min-width: 576px);@;[o;9;-i ;:[".h-section-boxed-container;@;[o;,;o;*	;#;$;"max-width-full;{ ;i˜;-i ;.;/;["max-width;@;[ ;i˜;5T;iˆ;5T;iÙo;<
+;"@media (min-width: 645px);@;[o;;i ;"+/* ul within the contact info block */;@;[ ;[ ;i˝o;9;-i ;:["'.ul-list-icon.horizontal-on-mobile;@;[o;,;o;6;"	flex;#;$;7;8;-i ;.;/;["display;@;[ ;iˇ;5T;i˛o;;i ;"+/* li within the contact info block */;@;[ ;[ ;io;9;-i ;:["2.ul-list-icon.horizontal-on-mobile .list-item;@;[o;,;o;6;"inline-flex;#;$;7;8;-i ;.;/;["display;@;[ ;i;5T;io;;i ;"G/* max-width on small screens so social media icons display 2x2 */;@;[ ;[ ;io;9;-i ;:["2#colibri .h-hide-sm .style-local-16-h23-outer;@;[o;,;o;6;"	100%;#;$;7;8;-i ;.;/;["max-width;@;[ ;i	;5T;io;9;-i ;:["#colibri .h-hide-sm .h-row;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m3;{ ;i;@|;i;4o;&;i;'"2px;#;$;@|;([ ;i;)["px;-i ;.;/;["padding;@;[ ;i;5T;io;;i ;"&/* Main header in hero section */;@;[ ;[ ;io;9;-i ;:["#colibri #hero h1;@;[o;,;o;6;"3em;#;$;7;8;-i ;.;/;["font-size;@;[ ;io;,;o;6;"1.1;#;$;7;8;-i ;.;/;["line-height;@;[ ;io;,;o;*	;#;$;"m3;{ ;i;-i ;.;/;["margin-bottom;@;[ ;i;5T;io;;i ;"9/* Container for secondary header in hero section */;@;[ ;[ ;io;9;-i ;:["'#colibri #hero .style-local-16-h29;@;[o;,;o;*	;#;$;"m3;{ ;i;-i ;.;/;["margin-bottom;@;[ ;i;5T;io;;i ;"+/* Secondary header in hero section */;@;[ ;[ ;io;9;-i ;:["#colibri #hero .style-29 p;@;[o;,;o;6;"1em;#;$;7;8;-i ;.;/;["font-size;@;[ ;io;,;o;6;"1.3;#;$;7;8;-i ;.;/;["line-height;@;[ ;i;5T;i;5T;i˚o;<
+;"@media (min-width: 768px);@;[o;;i ;"Y/* Reverse shrinking of spacer between logo and menu icon/items on larger screens */;@;[ ;[ ;i%o;9;-i ;:["&#colibri .style-local-16-h6-outer;@;[o;,;o;6;"	100%;#;$;7;8;-i ;.;/;["max-width;@;[ ;i';5T;i&o;;i ;"$/* Menu Icon outer container */;@;[ ;[ ;i*o;9;-i ;:["&#colibri .style-local-16-h8-outer;@;[o;,;o;"
+;#;$;"translateX;{ ;i,;%[o;&;i
+;'"5px;#;$;@ﬂ;([ ;i,;)["px;-i ;.;/;["transform;@;[ ;i,;5T;i+o;9;-i ;:["#colibri .jed-cards-ctr;@;[o;,;o;6;"space-between;#;$;7;8;-i ;.;/;["justify-content;@;[ ;i0;5T;i/o;9;-i ;:[")#colibri .jed-card:nth-last-child(2);@;[o;,;o;6;"0;#;$;7;8;-i ;.;/;["margin-bottom;@;[ ;i4;5T;i3o;9;-i ;:["#colibri .jed-card;@;[o;,;o: Sass::Script::Interpolation:@whitespace_beforeF:@aftero;6
+;");#;$;{ ;i8;7;8;@:@originally_textF:	@mido;*	;#;$;"m1;@;i8:@whitespace_afterF:@beforeo;6
+;"calc(50% - ;#;$;@;i8;7;8;-i ;.;/;["
+width;@;[ ;i8;5T;i7;5T;i#o;<
+;"@media (min-width: 900px);@;[
+o;9;-i ;:["#colibri #navigation;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m4;{ ;i?;@;i?;4o;&;i ;'"0;#;$;@;([ ;i?;)[ ;-i ;.;/;["padding;@;[ ;i?;5T;i>o;9;-i ;:["#colibri #hero;@;[o;,;o;*	;#;$;"m4;{ ;iC;-i ;.;/;["padding-left;@;[ ;iCo;,;o;*	;#;$;"m4;{ ;iD;-i ;.;/;["padding-right;@;[ ;iD;5T;iBo;9;-i ;:["#colibri .h-hide-sm .h-row;@;[o;,;o;6;"
+2px 0;#;$;7;8;-i ;.;/;["padding;@;[ ;iH;5T;iGo;9;-i ;:["#colibri .style-20;@;[o;,;o;0;1;2;#;$;3o;&;i ;'"0;#;$;{ ;([ ;iL;)[ ;@D;iL;4o;0;1;2;#;$;3o;*	;#;$;"m4;@D;iL;@D;iL;4o;*	;#;$;"m1;@D;iL;-i ;.;/;["padding;@;[ ;iL;5T;iKo;9;-i ;:["#colibri .jed-section;@;[o;,;o;0;1;2;#;$;3o;*	;#;$;"m4;{ ;iP;@W;iP;4o;*	;#;$;"m4;@W;iP;-i ;.;/;["padding;@;[ ;iP;5T;iO;5T;i<o;<
+;"@media (min-width: 1024px);@;[o;;i ;"$/* Menu Icon outer container */;@;[ ;[ ;iUo;9;-i ;:["&#colibri .style-local-16-h8-outer;@;[o;,;o;"
+;#;$;"translateX;{ ;iW;%[o;&;i ;'"0;#;$;@k;([ ;iW;)[ ;-i ;.;/;["transform;@;[ ;iW;5T;iV;5T;iTo;;i ;"/* HELPERS */;@;[ ;[ ;i^o;9;-i ;:[".unbold;@;[o;,;o;6;"400;#;$;7;8;-i ;.;/;["font-weight;@;[ ;iao;,;o;6;"
+0.7em;#;$;7;8;-i ;.;/;["font-size;@;[ ;ib;5T;i`o;9;-i ;:[".grecaptcha-badge;@;[o;,;o;6;"hidden;#;$;7;8;-i ;.;/;["visibility;@;[ ;if;5T;ie;5T;i
